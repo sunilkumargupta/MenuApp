@@ -1,6 +1,8 @@
 Project MenuApp:
+-----------------
 mvn archetype:generate -DgroupId=com.sunRays -DartifactId=MenuApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
-==========================================================================================================================
+
+
 Create DB & Table:
 ------------------
 mysql -u root -p sunRays <Enter>
@@ -13,11 +15,11 @@ category varchar(255),
 imageId varchar(255),
 PRIMARY KEY ( menuid )
 );
-==========================================================================================================================
 
 
 
 
+.
 ==========================================================================================================================
 1.
 http://localhost:8080/MenuApp/json/menuItems/listMenu
@@ -29,4 +31,5 @@ http://localhost:8080/MenuApp/json/menuItems/save
 POST
 Content-Type:application/json
 {"category":"snax","menuId":1,"menuName":"breadroll","imageId":"xxx"}
+.
 ==========================================================================================================================
