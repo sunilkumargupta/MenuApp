@@ -18,6 +18,7 @@ public class MenuItemDaoImpl implements MenuItemDao{
 		return (MenuItem) sessionFactory.getCurrentSession().get(MenuItem.class, menuId);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<MenuItem> getMenuItemList() {
 		return (List<MenuItem>) sessionFactory.getCurrentSession().createCriteria(MenuItem.class).list();
@@ -31,7 +32,8 @@ public class MenuItemDaoImpl implements MenuItemDao{
 
 	@Override
 	public void delete(MenuItem menuItem) {
-		sessionFactory.getCurrentSession().createQuery("DELETE FROM menuitems WHERE empid = "+menuItem.getMenuId()).executeUpdate();
+		//sessionFactory.getCurrentSession().createQuery("DELETE FROM menuitems WHERE empid = "+menuItem.getMenuId()).executeUpdate();
+		sessionFactory.getCurrentSession().delete(menuItem);
 		
 	}
 

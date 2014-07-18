@@ -33,6 +33,7 @@ public class MenuItemServiceImpl implements MenuItemService {
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED, readOnly = false)
 	public void delete(MenuItem menuItem) {
 		menuItemDao.delete(menuItem);
 	}

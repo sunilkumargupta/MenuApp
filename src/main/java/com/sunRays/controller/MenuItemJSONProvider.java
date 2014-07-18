@@ -11,16 +11,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.Response.Status;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-import com.sun.jersey.core.spi.factory.ResponseBuilderImpl;
 import com.sunRays.bean.MenuItemDto;
 import com.sunRays.model.MenuItem;
 import com.sunRays.service.MenuItemService;
@@ -77,8 +73,11 @@ public class MenuItemJSONProvider {
 	 }
 	 
 	 //@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public String delete(MenuItem menuItem){
-		 return "";
+	 @POST
+	 @Path("/delete")
+	 @Consumes(MediaType.APPLICATION_JSON)
+	public void delete(MenuItemDto menuItem){
+		 menuItemService.delete(beanToModel(menuItem));
 	 }
 	 
 	private MenuItem beanToModel(MenuItemDto menuItemDto){
