@@ -17,7 +17,9 @@ public void testGetInteger(){
 	
 	MenuItemServiceImpl misi=new MenuItemServiceImpl();
 	
+	//creating Mockito stub 
 	MenuItemDao mid=Mockito.mock(MenuItemDao.class);
+	//mid is private and autowired hence use Whitebox.setInternalState(...) 
 	Whitebox.setInternalState(misi, MenuItemDao.class, mid);
 	Mockito.when(mid.get(menuId)).thenReturn(expectedMenuItem);
 
