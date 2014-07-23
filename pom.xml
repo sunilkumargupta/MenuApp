@@ -8,16 +8,27 @@
   <name>MenuApp Maven Webapp</name>
   <url>http://maven.apache.org</url>
   
-  <build>
-    <finalName>MenuApp</finalName>
-  </build>
+  
   <properties>
 		<spring.version>3.2.1.RELEASE</spring.version>
 		<slf4j.version>1.6.1</slf4j.version>
 		<java-version>1.7</java-version>
 	
 	</properties>
-	 
+	<build>
+    <finalName>MenuApp</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <source>${java-version}</source>
+          <target>${java-version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build> 
   <dependencies>
  
         <!-- JUnit testing framework -->
@@ -27,7 +38,19 @@
                 <version>4.11</version>
                 <scope>test</scope>
         </dependency>
- 
+		<!-- Power Mockito testing framework -->
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.5.5</version>
+		</dependency>
+
         <!-- Spring framework -->
         <dependency>
 				<groupId>org.springframework</groupId>
