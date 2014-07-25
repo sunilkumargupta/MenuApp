@@ -1,8 +1,21 @@
-Project MenuApp:
+Project MenuApp used archetype:
 mvn archetype:generate -DgroupId=com.sunRays -DartifactId=MenuApp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
-==========================================================================================================================
-Create DB & Table:
-------------------
+====================================================================================================================
+Prerequisites:
+--------------
+1. GIT hub client.
+2. MYSQL db
+3. Maven
+4. Rest Client (like for chrome: Chrome Web Store - Advanced REST client - Google)
+====================================================================================================================
+Project SetUP:
+==============
+1. Clone repo in local drive
+----------------------------
+cmd> git clone https://github.com/sunilkumargupta/MenuApp
+
+2. Create DB & Table:
+---------------------
 mysql -u root -p sunRays <Enter>
 
 CREATE TABLE menuitems
@@ -13,19 +26,28 @@ category varchar(255),
 imageId varchar(255),
 PRIMARY KEY ( menuid )
 );
+
+3. Run Maven build
+------------------
+cmd/MenuApp> mvn clean install
+
+4. Run on Server
+----------------
+cmd/MenuApp> mvn tomcat:run
+above will try to launch tomcat on default port 8080.If default port is already busy then use below command to use different port
+cmd/MenuApp> mvn tomcat:run -Dmaven.tomcat.port <any unused port> 
+e.g 
+cmd/MenuApp> mvn tomcat:run -Dmaven.tomcat.port 9091
 ==========================================================================================================================
-
-
-
 
 ==========================================================================================================================
 1.
-http://localhost:8080/MenuApp/json/menuItems/listMenu
+http://localhost:9091/MenuApp/json/menuItems/listMenu
 2.
-http://localhost:8080/MenuApp/json/menuItems/get/{menuId}
-http://localhost:8080/MenuApp/json/menuItems/get/1
+http://localhost:9091/MenuApp/json/menuItems/get/{menuId}
+http://localhost:9091/MenuApp/json/menuItems/get/1
 3.
-http://localhost:8080/MenuApp/json/menuItems/save
+http://localhost:9091/MenuApp/json/menuItems/save
 POST
 Content-Type:application/json
 {"category":"snax","menuId":1,"menuName":"breadroll","imageId":"xxx"}
