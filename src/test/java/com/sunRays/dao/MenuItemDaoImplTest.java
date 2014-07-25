@@ -1,5 +1,9 @@
 package com.sunRays.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.junit.Assert;
@@ -22,6 +26,22 @@ public class MenuItemDaoImplTest {
 
 		midi=new MenuItemDaoImpl();
 		Whitebox.setInternalState(midi, SessionFactory.class, mockSessionFactory);
+	}
+	@Test
+	public void testGetMenuItemList(){
+		Integer menuId=2;
+		MenuItem menuItem = new MenuItem();
+		menuItem.setMenuId(menuId);
+		List <MenuItem> menuItemList=new ArrayList<MenuItem>();
+		menuItemList.add(menuItem);
+		
+		Criteria criteria=Mockito.mock(Criteria.class);
+		Mockito.when(mockSession.createCriteria(MenuItem.class)).thenReturn(criteria);
+		Mockito.when(criteria.list()).thenReturn(menuItemList);
+		
+		List <MenuItem> actualMenuItem = midi.getMenuItemList();
+		
+		Assert.assertEquals(menuItemList, actualMenuItem);
 	}
 	@Test
 	public void testGetInteger(){
