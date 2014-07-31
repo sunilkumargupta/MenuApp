@@ -56,5 +56,5 @@ http://localhost:9091/MenuApp/json/menuItems/get/1
 http://localhost:9091/MenuApp/json/menuItems/save
 method: POST
 Content-Type:  application/json
-{"category":"snax","menuName":"breadroll","imageId":"xxx"}
+payload: {"category":"snax","menuName":"breadroll","imageId":"xxx"}
 ==========================================================================================================================
