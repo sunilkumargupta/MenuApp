@@ -16,10 +16,14 @@ cmd> git clone https://github.com/sunilkumargupta/MenuApp
 
 2. Create DB & Table:
 ---------------------
-CREATE DATABASE sunRays  <Enter>
 
-mysql -u root -p sunRays <Enter>
+1. mysql -u root -p  <Enter>
 
+2. CREATE DATABASE sunRays  <Enter>
+
+3. connect sunRays; <Enter>
+
+4.
 CREATE TABLE menuitems
 (
 menuid int NOT NULL AUTO_INCREMENT,
