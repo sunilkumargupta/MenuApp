@@ -54,7 +54,7 @@ http://localhost:9091/MenuApp/json/menuItems/get/{menuId}
 http://localhost:9091/MenuApp/json/menuItems/get/1
 3.
 http://localhost:9091/MenuApp/json/menuItems/save
-POST
-Content-Type:application/json
-{"category":"snax","menuId":1,"menuName":"breadroll","imageId":"xxx"}
+method: POST
+Content-Type:  application/json
+{"category":"snax","menuName":"breadroll","imageId":"xxx"}
 ==========================================================================================================================
