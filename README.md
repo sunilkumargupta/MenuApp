@@ -1,7 +1,7 @@
 <pre>===================================================================================================================
 Prerequisites:
 --------------
-1. GIT hub client.
+1. install git (from installousappstore).
 2. MYSQL db
 3. Maven
 4. Rest Client (like for chrome: Chrome Web Store - Advanced REST client - Google)
