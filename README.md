@@ -31,6 +31,20 @@ imageId varchar(255),
 PRIMARY KEY ( menuid )
 );
 
+Note: Please verify mysql driver dependency Version:
+Please follow the steps below:
+1.	Check MySQL version. (Login through command prompt. You’ll find its version)
+2.	Google “maven dependency for <installed mysql version>.
+3.	Open the file ….\ MenuApp\pom.xml
+4.	Put the exact version for mysql driver jar  
+  <!-- MySQL database driver -->
+                <dependency>
+                                <groupId>mysql</groupId>
+                                <artifactId>mysql-connector-java</artifactId>
+                                <version>5.1.9</version>
+                </dependency>
+
+
 3. Run Maven build
 ------------------
 cmd/MenuApp> mvn clean install
